@@ -1,0 +1,108 @@
+
+# Turn Rewrite Engine On
+
+RewriteEngine On
+
+
+
+RewriteRule ^home.html?$ index.php [NC,L]
+RewriteRule ^staff_list.html?$ staff_list.php [NC,L]
+RewriteRule ^add_staff.html?$ add_staff.php [NC,L]
+RewriteRule ^patient_list.html?$ patient_list.php [NC,L]
+RewriteRule ^add_patient.html?$ add_patient.php [NC,L]
+RewriteRule ^test_categories.html?$ test_categories.php [NC,L]
+RewriteRule ^perameter_details.html?$ perameter_details.php [NC,L]
+RewriteRule ^pendding_test.html?$ pendding.php [NC,L]
+RewriteRule ^create_report.html?$ create_report.php [NC,L]
+RewriteRule ^investment_plans.html?$ investment_plans.php [NC,L]
+RewriteRule ^complete_test.html?$ complete.php [NC,L]
+RewriteRule ^add_investor.html?$ add_investor.php [NC,L]
+RewriteRule ^investors.html?$ investors.php [NC,L]
+RewriteRule ^login.html?$ login.php [NC,L]
+RewriteRule ^medicines.html?$ medicines.php [NC,L]
+RewriteRule ^cultures.html?$ cultures.php [NC,L]
+RewriteRule ^add_cultures_test.html?$ add_cultures_test.php [NC,L]
+RewriteRule ^undistributed.html?$ undistributed.php [NC,L]
+RewriteRule ^distributed.html?$ distributed.php [NC,L]
+RewriteRule ^changepassword.html?$ changepassword.php [NC,L]
+RewriteRule ^bystaff.html?$ bystaff.php [NC,L]
+RewriteRule ^onlinebookings.html?$ onlinebookings.php [NC,L]
+RewriteRule ^withdrawal_requests.html?$ withdrawal_requests.php [NC,L]
+RewriteRule ^complete_request.html?$ complete_request.php [NC,L]
+RewriteRule ^frenchiselist.html?$ frenchiselist.php [NC,L]
+RewriteRule ^addfrenchise.html?$ addfrenchise.php [NC,L]
+RewriteRule ^add_doctor.html?$ add_doctor.php [NC,L]
+RewriteRule ^doctors.html?$ doctors.php [NC,L]
+RewriteRule ^frenchise_doctors.html?$ frenchise_doctors.php [NC,L]
+RewriteRule ^bylab.html?$ bylab.php [NC,L]
+RewriteRule ^byrider.html?$ byrider.php [NC,L]
+RewriteRule ^test_kits.html?$ test_kits.php [NC,L]
+RewriteRule ^general.html?$ general.php [NC,L]
+RewriteRule ^update_general.html?$ update_general.php [NC,L]
+RewriteRule ^products.html?$ products.php [NC,L]
+RewriteRule ^addproduct.html?$ add_product.php [NC,L]
+RewriteRule ^questions.html?$ questions.php [NC,L]
+RewriteRule ^addquestion.html?$ addquestion.php [NC,L]
+RewriteRule ^pending_staff.html?$ pending_members.php [NC,L]
+RewriteRule ^exam_qualified.html?$ exam_qualified.php [NC,L]
+RewriteRule ^complete_exam.html?$ complate_exam.php [NC,L]
+RewriteRule ^alltests.html?$ alltests.php [NC,L]
+RewriteRule ^create_package.html?$ create_package.php [NC,L]
+RewriteRule ^packages.html?$ packages.php [NC,L]
+RewriteRule ^addtest.html?$ addtest.php [NC,L]
+RewriteRule ^histopathology.html?$ histopathology.php [NC,L]
+RewriteRule ^radiology.html?$ radiology.php [NC,L]
+RewriteRule ^discounts.html?$ discounts.php [NC,L]
+
+
+
+
+# NC make the rule non case sensitive
+
+# L makes this the last rule that the specific condition will match
+
+
+
+RewriteRule ^change_status/([0-9a-zA-Z-]+).html chagne_status.php?id=$1 [NC,L]
+
+RewriteRule ^view_test/([0-9a-zA-Z-]+).html view_test.php?id=$1 [NC,L]
+RewriteRule ^change_info/([0-9a-zA-Z-]+).html change_info.php?id=$1 [NC,L]
+RewriteRule ^change_pass/([0-9a-zA-Z-]+).html change_pass.php?id=$1 [NC,L]
+RewriteRule ^patient_info/([0-9a-zA-Z-]+).html patient_info.php?id=$1 [NC,L]
+RewriteRule ^perameter_details/([0-9a-zA-Z-]+).html perameter_details.php?id=$1 [NC,L]
+RewriteRule ^perameters/([0-9a-zA-Z-]+) perameters.php?id=$1 [NC,L]
+RewriteRule ^add_test/([0-9a-zA-Z-]+) add_test.php?id=$1 [NC,L]
+RewriteRule ^invoice/([0-9a-zA-Z-]+) invoice.php?id=$1 [NC,L]
+RewriteRule ^create_report/([0-9a-zA-Z-]+) create_report.php?id=$1 [NC,L]
+RewriteRule ^report/([0-9a-zA-Z-]+) report.php?id=$1 [NC,L]
+RewriteRule ^investor_info/([0-9a-zA-Z-]+) investor_info.php?id=$1 [NC,L]
+RewriteRule ^add_investment/([0-9a-zA-Z-]+) add_investment.php?id=$1 [NC,L]
+RewriteRule ^editmedicine/([0-9a-zA-Z-]+) editmedicine.php?id=$1 [NC,L]
+RewriteRule ^editculture/([0-9a-zA-Z-]+) editculture.php?id=$1 [NC,L]
+RewriteRule ^add_culture/([0-9a-zA-Z-]+) add_culture.php?id=$1 [NC,L]
+RewriteRule ^editinfo/([0-9a-zA-Z-]+) editinfo.php?id=$1 [NC,L]
+RewriteRule ^investment/([0-9a-zA-Z-]+) investment.php?id=$1 [NC,L]
+RewriteRule ^booking/([0-9a-zA-Z-]+) booking.php?id=$1 [NC,L]
+RewriteRule ^request/([0-9a-zA-Z-]+).html request.php?id=$1 [NC,L]
+RewriteRule ^frenchise/([0-9a-zA-Z-]+).html frenchise.php?id=$1 [NC,L]
+RewriteRule ^doctor/([0-9a-zA-Z-]+).html doctor.php?id=$1 [NC,L]
+RewriteRule ^view_doctor/([0-9a-zA-Z-]+).html view_doctor.php?id=$1 [NC,L]
+RewriteRule ^category/([0-9a-zA-Z-]+).html category.php?id=$1 [NC,L]
+
+RewriteRule ^view_test/([0-9a-zA-Z-]+).html view_test.php?id=$1 [NC,L]
+RewriteRule ^add_stock/([0-9a-zA-Z-]+).html add_stock.php?id=$1 [NC,L]
+
+RewriteRule ^product/([0-9a-zA-Z-]+).html product.php?id=$1 [NC,L]
+RewriteRule ^question/([0-9a-zA-Z-]+).html question.php?id=$1 [NC,L]
+RewriteRule ^working_history/([0-9a-zA-Z-]+).html history.php?id=$1 [NC,L]
+RewriteRule ^changestatus/([0-9a-zA-Z-]+).html changestatus.php?id=$1 [NC,L]
+RewriteRule ^heads/([0-9a-zA-Z-]+).html heads.php?id=$1 [NC,L]
+RewriteRule ^addperameters/([0-9a-zA-Z-]+).html addperameter.php?id=$1 [NC,L]
+RewriteRule ^package/([0-9a-zA-Z-]+).html package.php?id=$1 [NC,L]
+RewriteRule ^pack/([0-9a-zA-Z-]+).html pack.php?id=$1 [NC,L]
+RewriteRule ^reference/([0-9a-zA-Z-]+).html reference.php?id=$1 [NC,L]
+RewriteRule ^test_list/([0-9a-zA-Z-]+).html test_list.php?id=$1 [NC,L]
+RewriteRule ^add_dropdown/([0-9a-zA-Z-]+).html add_dropdown.php?id=$1 [NC,L]
+RewriteRule ^patient_tests/([0-9a-zA-Z-]+) patient_tests.php?id=$1 [NC,L]
+RewriteRule ^radio/([0-9a-zA-Z-]+) radio.php?id=$1 [NC,L]
+RewriteRule ^discount/([0-9a-zA-Z-]+) discount.php?id=$1 [NC,L]

@@ -1,0 +1,23 @@
+
+# Turn Rewrite Engine On
+
+RewriteEngine On
+
+
+
+RewriteRule ^home.html?$ index.php [NC,L]
+RewriteRule ^pendding_test.html?$ pending.php [NC,L]
+RewriteRule ^complete_test.html?$ complete.php [NC,L]
+RewriteRule ^login.html?$ login.php [NC,L]
+RewriteRule ^changepassword.html?$ changepassword.php [NC,L]
+
+
+
+# NC make the rule non case sensitive
+
+# L makes this the last rule that the specific condition will match
+
+
+
+
+RewriteRule ^report/([0-9a-zA-Z-]+) report.php?id=$1 [NC,L]
