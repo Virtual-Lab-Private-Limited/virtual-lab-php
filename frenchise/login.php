@@ -6,6 +6,7 @@ if (isset($_POST['username'])) {
   $username = $_POST['username'];
   $pass = $_POST['pass'];
 
+  
   if ((!$username) || (!$pass)) {
     echo "<script>alert(' please insert both field')</script>";
   } else {
