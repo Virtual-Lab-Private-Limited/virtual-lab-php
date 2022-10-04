@@ -6,8 +6,8 @@
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#RewriteCond %{HTTPS} off
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
 
 # END HTTPS Forced Redirect
@@ -66,7 +66,7 @@ RewriteRule . /index.php [L]
    php_value memory_limit 512M
    php_value post_max_size 516M
    php_value session.gc_maxlifetime 1440
-   php_value session.save_path "/var/cpanel/php/sessions/ea-php74"
+  #  php_value session.save_path "/var/cpanel/php/sessions/ea-php74"
    php_value upload_max_filesize 512M
    php_flag zlib.output_compression Off
    php_value date.timezone "Asia/Karachi"
