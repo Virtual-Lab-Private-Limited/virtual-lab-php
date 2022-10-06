@@ -85,5 +85,3 @@ $content .= ' <div class="row mt-4">
                       <strong><h5> S = Sensitive, R = Resistant, I = Intermediate </h5> </strong>';
                             
 }
-                          
-?>
