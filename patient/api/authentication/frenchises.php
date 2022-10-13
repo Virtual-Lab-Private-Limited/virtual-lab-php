@@ -4,19 +4,18 @@ header("Access-Control-Allow-Methods: POST");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-require __DIR__.'/classes/Database.php';
-require __DIR__.'/middlewares/Auth.php';
+require __DIR__ . '/classes/Database.php';
+require __DIR__ . '/middlewares/Auth.php';
 
 $allHeaders = getallheaders();
 
 $db_connection = new Database();
 $conn = $db_connection->dbConnection();
-$auth = new Auth($conn,$allHeaders);
+$auth = new Auth($conn, $allHeaders);
 
-if($auth->isAuth()){
+if ($auth->isAuth()) {
     $returnData = fetchFrenchises($conn);
-}
-else{
+} else {
     $returnData = [
         "success" => 0,
         "status" => 401,
@@ -26,29 +25,29 @@ else{
 
 echo json_encode($returnData);
 
-function fetchFrenchises($conn){
+function fetchFrenchises($conn)
+{
 
-    try{
+    try {
         $data = "SELECT username,address,city,id from frenchises WHERE active=1  ";
-         
+
         $query_stmt = $conn->prepare($data);
         $result = $query_stmt->execute();
-        if($query_stmt->rowCount()):
+        if ($query_stmt->rowCount()) :
             $row = $query_stmt->fetchAll(PDO::FETCH_ASSOC);
             return [
                 'success' => 1,
                 'status' => 200,
                 'frenchises' => $row
             ];
-        else:
+        else :
             return [
                 "success" => 0,
                 "status" => 401,
                 "message" => "No data to show"
             ];
         endif;
-    }
-    catch(PDOException $e){
+    } catch (PDOException $e) {
         echo ($e);
         return null;
     }

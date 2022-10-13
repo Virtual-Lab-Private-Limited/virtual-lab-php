@@ -15,8 +15,8 @@ class Auth extends JwtHandler{
     }
 
     public function isAuth(){
-        if(array_key_exists('Token',$this->headers) && !empty(trim($this->headers['Token']))):
-            $this->token =  explode(" ", trim($this->headers['Token']));
+        if(array_key_exists('token',$this->headers) && !empty(trim($this->headers['token']))):
+            $this->token =  explode(" ", trim($this->headers['token']));
           
             if(isset($this->token[1]) && !empty(trim($this->token[1]))):
               

@@ -1,22 +1,25 @@
 <?php
-class Database{
-    
+class Database
+{
+
     private $db_host = 'localhost';
-    private $db_name = 'nxqxtdmy_virtuallab';
-    private $db_username = 'nxqxtdmy_virtual';
-    private $db_password = 'Allah@Muhammad@786';
-    
-    public function dbConnection(){
-        
-        try{
-            $conn = new PDO('mysql:host='.$this->db_host.';dbname='.$this->db_name,$this->db_username,$this->db_password);
+    // private $db_name = 'nxqxtdmy_virtuallab';
+    // private $db_username = 'nxqxtdmy_virtual';
+    // private $db_password = 'Allah@Muhammad@786';
+    private $db_name = 'virtuallab_db';
+    private $db_username = 'root';
+    private $db_password = '';
+
+    public function dbConnection()
+    {
+
+        try {
+            $conn = new PDO('mysql:host=' . $this->db_host . ';dbname=' . $this->db_name, $this->db_username, $this->db_password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $conn;
-        }
-        catch(PDOException $e){
-            echo "Connection error ".$e->getMessage(); 
+        } catch (PDOException $e) {
+            echo "Connection error " . $e->getMessage();
             exit;
         }
-          
     }
 }
