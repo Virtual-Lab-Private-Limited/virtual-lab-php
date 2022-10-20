@@ -2,46 +2,45 @@
 session_start();
 include("global.php");
 
-if(isset($_POST['username'])){
-	$username=$_POST['username'];
-	$pass=$_POST['pass'];
-    
-    if((!$username)||(!$pass)){
-        echo "<script>alert(' please insert both field')</script>";
+if (isset($_POST['username'])) {
+  $username = $_POST['username'];
+  $pass = $_POST['pass'];
+
+  if ((!$username) || (!$pass)) {
+    echo "<script>alert(' please insert both field')</script>";
+  } else {
+    //secure the data
+    $pass = md5($pass);
+    // $query = mysqli_query($con, "SELECT * from frenchise_doctor WHERE firstname='$username' AND  password='$pass' LIMIT 1") or die(mysqli_error($con));
+    $query = mysqli_query($con, "SELECT * from frenchise_doctor WHERE firstname='$username' LIMIT 1") or die(mysqli_error($con));
+    $count_query = mysqli_num_rows($query);
+
+    if ($count_query == 0) {
+      echo "<script>alert('Invaild Username/Password')</script>";
     } else {
-    	//secure the data
-    	$pass=md5($pass);
-    	$query=mysqli_query($con,"SELECT * from frenchise_doctor WHERE firstname='$username' AND  password='$pass' LIMIT 1") or die (mysqli_error());
-    	$count_query=mysqli_num_rows($query);
+      //start the session
+      $_SESSION['pass'] = $pass;
+      while ($row = mysqli_fetch_array($query)) {
+        $email = $row['email'];
+        $id = $row['id'];
+        $contact = $row['contact'];
+        $firstname = $row['firstname'];
+        $lastname = $row['lastname'];
+        $labid = $row['labid'];
+      }
 
-	if($count_query==0){
-	    echo "<script>alert('Invaild Username/Password')</script>";
-
-		}else{
-		//start the session
-		$_SESSION['pass']=$pass;
-		while($row=mysqli_fetch_array($query)){
-		$email=$row['email'];
-		$id=$row['id'];
-		$contact=$row['contact'];
-		$firstname=$row['firstname'];
-		$lastname=$row['lastname'];
-		$labid=$row['labid'];
-		
-	}
-
-			$_SESSION['username']=$username;
-			$_SESSION['id']=$id;
-			$_SESSION['email']=$email;
-			$_SESSION['contact']=$contact;
-		$_SESSION['firstname']=$firstname;							
-		$_SESSION['labid']=$labid;
-			$_SESSION['lastname']=$lastname;
-		echo '<meta http-equiv="refresh"
-   content="0; url='.$baseurl.'home.html">';
-		}
-		
-}
+      $_SESSION['username'] = $username;
+      $_SESSION['id'] = $id;
+      $_SESSION['email'] = $email;
+      $_SESSION['contact'] = $contact;
+      $_SESSION['firstname'] = $firstname;
+      $_SESSION['labid'] = $labid;
+      $_SESSION['lastname'] = $lastname;
+      echo '<meta http-equiv="refresh"
+   content="0; url=' . $baseurl . 'home.html">';
+      exit;
+    }
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -59,8 +58,8 @@ if(isset($_POST['username'])){
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/components.css">
   <!-- Custom style CSS -->
-  
-  <link rel='shortcut icon' type='image/x-icon' href='<?php echo $baseurl;?>images/favicon.png' />
+
+  <link rel='shortcut icon' type='image/x-icon' href='<?php echo $baseurl; ?>images/favicon.png' />
 </head>
 
 <body class="background-image-body">
@@ -71,18 +70,18 @@ if(isset($_POST['username'])){
         <div class="row">
           <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
             <div class="login-brand login-brand-color">
-            	<img alt="image" src="assets/img/logo.png" />
+              <img alt="image" src="assets/img/logo.png" />
             </div>
             <div class="card card-auth">
               <div class="card-header card-header-auth">
                 <h4>Login</h4>
               </div>
               <div class="card-body">
-<form method="post" action="<?php echo $baseurl;?>login.html" class="needs-validation" novalidate>
+                <form method="post" action="<?php echo $baseurl; ?>login.html" class="needs-validation" novalidate>
                   <div class="form-group">
                     <label for="email">Username</label>
                     <input type="text" class="form-control" name="username" autocomplete="off" tabindex="1" required autofocus>
-                    
+
                   </div>
                   <div class="form-group">
                     <div class="d-block">
@@ -93,7 +92,7 @@ if(isset($_POST['username'])){
                         </a>
                       </div>
                     </div>
-<input type="password" class="form-control" name="pass" value="" tabindex="2" required>
+                    <input type="password" class="form-control" name="pass" value="" tabindex="2" required>
                     <div class="invalid-feedback">
                       please fill in your password
                     </div>
@@ -105,7 +104,7 @@ if(isset($_POST['username'])){
                     </div>
                   </div>
                   <div class="form-group">
-<input type="submit" name="submit" class="btn btn-lg btn-block btn-auth-color" tabindex="4">
+                    <input type="submit" name="submit" class="btn btn-lg btn-block btn-auth-color" tabindex="4">
                   </div>
                 </form>
               </div>
@@ -121,9 +120,10 @@ if(isset($_POST['username'])){
   <!-- Page Specific JS File -->
   <!-- Template JS File -->
   <script src="assets/js/scripts.js"></script>
-  
+
 </body>
 
 
 <!-- Mirrored from radixtouch.in/templates/snkthemes/grexsan/source/light/auth-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Jul 2020 09:19:06 GMT -->
+
 </html>
